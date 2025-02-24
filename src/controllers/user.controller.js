@@ -310,9 +310,7 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
                 }
             }
         },
-        {
-            new: true
-        }
+        { new: true }
     ).select("-password -refreshToken");
 
     if (avatarToDelete && updatedUser.avatar.public_id) {
@@ -351,9 +349,7 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
                 }
             }
         },
-        {
-            new: true
-        }
+        { new: true }
     ).select("-password -refreshToken");
 
     if (coverImageToDelete && updatedUser.coverImage.public_id) {
