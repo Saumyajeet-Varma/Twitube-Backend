@@ -14,12 +14,11 @@ connectDB()
             console.log("ERROR: ", err);
             throw err;
         });
-
         app.listen(PORT, () => {
             console.log(`\nServer is running at ${PORT}`);
             console.log(`http://localhost:${PORT}`)
-        })
+        });
     })
     .catch((err) => {
         console.log("MONGODB connection failed !! ", err);
-    })
+    });
