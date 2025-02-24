@@ -1,10 +1,11 @@
 import { Router } from "express"
 import { createTweet, getUserTweets, updateTweet, deleteTweet } from "../controllers/tweet.controller.js"
 import verifyJwt from "../middlewares/auth.middleware.js"
+import { upload } from "../middlewares/multer.middleware.js"
 
 const tweetRouter = Router();
 
-tweetRouter.use(verifyJwt);
+tweetRouter.use(verifyJwt, upload.none());
 
 // * SECURED ROUTES__________________________________________________
 

@@ -3,10 +3,11 @@ import mongoose from "mongoose"
 const playlistSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        required: [true, "name is required"],
     },
     description: {
         type: String,
+        required: [true, "description is required"],
     },
     videos: [
         {

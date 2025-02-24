@@ -5,7 +5,7 @@ import bcrypt from "bcrypt"
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
+        required: [true, "username is required"],
         unique: true,
         lowercase: true,
         trim: true,
@@ -13,23 +13,29 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
+        required: [true, "email is required"],
         unique: true,
         lowercase: true,
         trim: true,
     },
     fullName: {
         type: String,
-        required: true,
+        required: [true, "fullname is required"],
         trim: true,
         index: true,
     },
     avatar: {
-        type: String, // Cloudinary URL
+        type: {
+            public_id: String,
+            url: String // Cloudinary url
+        },
         required: true,
     },
     coverImage: {
-        type: String, // Cloudinary URL
+        type: {
+            public_id: String,
+            url: String // Cloudinary url
+        },
     },
     password: {
         type: String,

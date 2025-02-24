@@ -1,10 +1,11 @@
 import { Router } from "express"
 import { getVideoComments, addComment, updateComment, deleteComment } from "../controllers/comment.controller.js"
 import verifyJwt from "../middlewares/auth.middleware.js"
+import { upload } from "../middlewares/multer.middleware.js"
 
 const commentRouter = Router();
 
-commentRouter.use(verifyJwt);
+commentRouter.use(verifyJwt, upload.none());
 
 // * SECURED ROUTES__________________________________________________
 

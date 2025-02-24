@@ -1,10 +1,11 @@
 import { Router } from "express"
 import { createPlaylist, getUserPlaylists, getPlaylistById, addVideoToPlaylist, removeVideoFromPlaylist, deletePlaylist, updatePlaylist } from "../controllers/playlist.controller.js"
 import verifyJwt from "../middlewares/auth.middleware.js"
+import { upload } from "../middlewares/multer.middleware.js"
 
 const playlistRouter = Router();
 
-playlistRouter.use(verifyJwt);
+playlistRouter.use(verifyJwt, upload.none());
 
 // * SECURED ROUTES__________________________________________________
 
