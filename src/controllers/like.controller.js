@@ -12,12 +12,13 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Invalid video Id");
     }
 
-    const likedAlready = await Like.findone({
+    const likedAlready = await Like.findOne({
         video: videoId,
         likedBy: req.user?._id,
     });
 
     if (likedAlready) {
+
         await Like.findByIdAndUpdate(likedAlready?._id);
 
         return res
@@ -43,12 +44,13 @@ const toggleCommentLike = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Invalid comment Id");
     }
 
-    const likedAlready = await Like.findone({
+    const likedAlready = await Like.findOne({
         comment: commentId,
         likedBy: req.user?._id,
     });
 
     if (likedAlready) {
+
         await Like.findByIdAndUpdate(likedAlready?._id);
 
         return res
@@ -74,12 +76,13 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Invalid tweet Id");
     }
 
-    const likedAlready = await Like.findone({
+    const likedAlready = await Like.findOne({
         tweet: tweetId,
         likedBy: req.user?._id,
     });
 
     if (likedAlready) {
+
         await Like.findByIdAndUpdate(likedAlready?._id);
 
         return res
