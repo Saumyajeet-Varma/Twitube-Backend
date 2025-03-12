@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { registerUser, loginUser, logoutUser, refreshAccessToken, changePassword, getCurrentUser, updateAccountDetails, updateUserAvatar, updateUserCoverImage, getUserChannelProfile, getWatchHistory } from "../controllers/user.controller.js"
+import { registerUser, loginUser, logoutUser, refreshAccessToken, changePassword, getCurrentUser, updateUserDetails, updateUserAvatar, updateUserCoverImage, getUserChannelProfile, getWatchHistory } from "../controllers/user.controller.js"
 import { upload } from "../middlewares/multer.middleware.js"
 import verifyJwt from "../middlewares/auth.middleware.js"
 
@@ -52,7 +52,7 @@ userRouter
 // http://localhost:8000/api/v1/users/update-account
 userRouter
     .route("/update-account")
-    .patch(updateAccountDetails);
+    .patch(updateUserDetails);
 
 // http://localhost:8000/api/v1/users/avatar
 userRouter
